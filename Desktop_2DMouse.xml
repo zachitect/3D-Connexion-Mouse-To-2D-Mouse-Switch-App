@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+(c) Copyright 3Dconnexion. All rights reserved. 
+$Revision: 14085 $
+-->
+<AppCfg Default="true" xmlns="" CfgFormatVersion="1.2" ThisFileVersion="1.8">
+  <!-- 
+     Desktop is a profile for switching to/from desktop-wide operations.  You get to it via the
+     Driver_Desktop_ToggleGrab button action.  This ButtonAction should be assigned to the same 
+     button in each profile that you want to switch from, so you can use that button as a toggle.
+	 It is easiest to assign it in global.xml.
+     When you toggle into this profile, you have a hard-grab and all events go here until you
+     toggle out.  When you toggle out, you go back to the regular arbitration scheme.
+
+     This is useful to toggle into 2D mouse mode, navigate to a different application window
+     with MouseX/Y and switch to it with LeftMouse, then toggle back to 3D mouse mode.
+     Certainly other desktop-wide operations could be imagined.
+
+-->
+  <AppInfo>
+    <Signature>
+      <Name>STR_DESKTOP</Name>
+      <ExecutableName></ExecutableName>
+      <Transport>KMJ</Transport>
+    </Signature>
+  </AppInfo>
+  <CfgProperties>
+    <Grab>Hard</Grab>
+  </CfgProperties>
+  <AuthorInfo>
+    <DriverVersion>17.5.5</DriverVersion>
+    <Created>
+      <Tool>3DxService.exe</Tool>
+      <Version>17.5.5</Version>
+      <Date>2017:11:2:28:10:58:11:745</Date>
+      <User>3DxCfgAdmin</User>
+    </Created>
+  </AuthorInfo>
+  <Settings>
+    <ResponseCurve>1.00</ResponseCurve>
+  </Settings>
+  <MacroTable>
+    <MacroEntry>
+      <ID>Settings</ID>
+      <Sequence>
+        <KeyPress>E3</KeyPress>
+        <KeyPress>C</KeyPress>
+        <KeyRelease>C</KeyRelease>
+        <KeyRelease>E3</KeyRelease>
+      </Sequence>
+    </MacroEntry>
+    <MacroEntry>
+      <ID>PresentationMode</ID>
+      <Sequence>
+        <KeyPress>E3</KeyPress>
+        <KeyPress>13</KeyPress>
+        <KeyRelease>13</KeyRelease>
+        <KeyRelease>E3</KeyRelease>
+      </Sequence>
+    </MacroEntry>
+    <MacroEntry>
+      <ID>Sysinfo</ID>
+      <Sequence>
+        <KeyPress>E3</KeyPress>
+        <KeyPress>0</KeyPress>
+        <KeyRelease>0</KeyRelease>
+        <KeyRelease>E3</KeyRelease>
+      </Sequence>
+    </MacroEntry>
+    <MacroEntry>
+      <ID>Start Menu</ID>
+      <Sequence>
+        <KeyPress>E0</KeyPress>
+        <KeyPress>29</KeyPress>
+        <KeyRelease>29</KeyRelease>
+        <KeyRelease>E0</KeyRelease>
+      </Sequence>
+    </MacroEntry>
+  </MacroTable>
+  <ButtonActions xmlns:driver_images="./images/3DxService/" xmlns:device_images="../images/">
+    <ButtonAction Type="App">
+      <ID>PresentationMode</ID>
+      <Name>Project</Name>
+      <Arg>None</Arg>
+      <Image>
+        <Source>[driver_images:PresentMode.png]</Source>
+      </Image>
+    </ButtonAction>
+    <ButtonAction Type="App">
+      <ID>Taskmgr</ID>
+      <Name>Task Manager</Name>
+      <Arg>None</Arg>
+      <Image>
+        <Source>[driver_images:Taskmgr.png]</Source>
+      </Image>
+    </ButtonAction>
+
+    <ButtonAction Type="Driver">
+      <ID>Driver_Start_3DxViewer</ID>
+      <Name>STR_DRIVER_START3DXVIEWER</Name>
+      <Image>
+        <Source>[driver_images:Viewer.png]</Source>
+      </Image>
+    </ButtonAction>
+
+    <ButtonAction Type="Exe">
+      <ID>EXE_Start_Sysinfo32</ID>
+      <Name>System Information</Name>
+      <Executable>msinfo32.exe</Executable>
+      <Arg>None</Arg>
+      <Image>
+        <Source>[driver_images:SysInfo.png]</Source>
+      </Image>
+    </ButtonAction>
+
+    <ButtonAction Type="App">
+      <ID>Settings</ID>
+      <Name>Settings</Name>
+      <Arg>None</Arg>
+      <Image>
+        <Source>[driver_images:Settings.png]</Source>
+      </Image>
+    </ButtonAction>
+    <ButtonAction Type="Exe">
+      <ID>EXE_Start_Notepad</ID>
+      <Name>Notepad</Name>
+      <Executable>NOTEPAD.EXE</Executable>
+      <Arg>None</Arg>
+      <Image>
+        <Source>[driver_images:notepad.png]</Source>
+      </Image>
+    </ButtonAction>
+    <ButtonAction Type="Exe">
+      <ID>EXE_Start_Paint</ID>
+      <Name>Paint</Name>
+      <Executable>MSPAINT.EXE</Executable>
+      <Arg>None</Arg>
+      <Image>
+        <Source>[driver_images:mspaint.png]</Source>
+      </Image>
+    </ButtonAction>
+    <ButtonAction Type="Exe">
+      <ID>EXE_Start_calc</ID>
+      <Name>Calculator</Name>
+      <Executable>calc.EXE</Executable>
+      <Arg>None</Arg>
+      <Image>
+        <Source>[driver_images:calc.png]</Source>
+      </Image>
+    </ButtonAction>
+    <ButtonAction Type="Driver">
+      <ID>Driver_Desktop_ToggleGrab</ID>
+      <Name>Toggle 2D 3D mode</Name>
+    </ButtonAction>
+  </ButtonActions>
+  <Devices>
+    <Device>
+      <Name>Standard 3D Mouse</Name>
+      <VendorID>0</VendorID>
+      <ProductID>0</ProductID>
+      <AxisFilter>None</AxisFilter>
+      <CurrentButtonBank>Default</CurrentButtonBank>
+      <CurrentAxisBank>Default</CurrentAxisBank>
+      <AxisBank Default="true">
+        <Name>STR_DEFAULT_BANK</Name>
+        <ID>Default</ID>
+        <Axis>
+          <Enabled>true</Enabled>
+          <Input>
+            <ActionID>HIDMultiAxis_Rx</ActionID>
+            <Min>-512</Min>
+            <Max>511</Max>
+          </Input>
+          <Output>
+            <ActionID>HIDMouse_Y</ActionID>
+          </Output>
+        </Axis>
+        <Axis>
+          <Enabled>true</Enabled>
+          <Input>
+            <ActionID>HIDMultiAxis_Ry</ActionID>
+            <Min>-512</Min>
+            <Max>511</Max>
+          </Input>
+          <Output>
+            <ActionID>HIDMouse_X</ActionID>
+            <Reversed>true</Reversed>
+          </Output>
+        </Axis>
+        <Axis>
+          <Enabled>true</Enabled>
+          <Input>
+            <ActionID>HIDMultiAxis_Rz</ActionID>
+            <Min>-512</Min>
+            <Max>511</Max>
+          </Input>
+          <Output>
+            <ActionID>HIDMouse_Wheel</ActionID>
+          </Output>
+        </Axis>
+      </AxisBank>
+      <ButtonBank Default="true">
+        <Name>STR_DEFAULT_BUTTONBANK</Name>
+        <ID>Default</ID>
+        <Button>
+          <Input>
+            <ActionID>V3DK_ENTER</ActionID>
+          </Input>
+          <Output>
+            <ActionID>HIDMouse_Left</ActionID>
+          </Output>
+        </Button>
+        <Button>
+          <Input>
+            <ActionID>V3DK_ESC</ActionID>
+          </Input>
+          <Output>
+            <ActionID>HIDMouse_Right</ActionID>
+          </Output>
+        </Button>
+        <Button>
+          <Input>
+            <ActionID>V3DK_1</ActionID>
+          </Input>
+          <Output>
+            <ActionID>Driver_Start_FileManager</ActionID>
+          </Output>
+        </Button>
+        <Button>
+          <Input>
+            <ActionID>V3DK_2</ActionID>
+          </Input>
+          <Output>
+            <ActionID>Driver_Start_Browser</ActionID>
+          </Output>
+        </Button>
+        <Button>
+          <Input>
+            <ActionID>V3DK_3</ActionID>
+          </Input>
+          <Output>
+            <ActionID>Driver_Start_3DxViewer</ActionID>
+          </Output>
+        </Button>
+        <Button>
+          <Input>
+            <ActionID>V3DK_4</ActionID>
+          </Input>
+          <Output>
+            <ActionID>Macro_TaskManager</ActionID>
+          </Output>
+        </Button>
+        <Button>
+          <Input>
+            <ActionID>V3DK_5</ActionID>
+          </Input>
+          <Output>
+            <ActionID>EXE_Start_Sysinfo32</ActionID>
+          </Output>
+        </Button>
+        <Button>
+          <Input>
+            <ActionID>V3DK_6</ActionID>
+          </Input>
+          <Output>
+            <ActionID>Settings</ActionID>
+          </Output>
+        </Button>
+        <Button>
+          <Input>
+            <ActionID>V3DK_7</ActionID>
+          </Input>
+          <Output>
+            <ActionID>EXE_Start_Notepad</ActionID>
+          </Output>
+        </Button>
+        <Button>
+          <Input>
+            <ActionID>V3DK_8</ActionID>
+          </Input>
+          <Output>
+            <ActionID>EXE_Start_Paint</ActionID>
+          </Output>
+        </Button>
+        <Button>
+          <Input>
+            <ActionID>V3DK_9</ActionID>
+          </Input>
+          <Output>
+            <ActionID>EXE_Start_calc</ActionID>
+          </Output>
+        </Button>
+        <Button>
+          <Input>
+            <ActionID>V3DK_10</ActionID>
+          </Input>
+          <Output>
+            <ActionID>PresentationMode</ActionID>
+          </Output>
+        </Button>
+        <Button>
+          <Input>
+            <ActionID>V3DK_11</ActionID>
+          </Input>
+          <Output>
+            <ActionID>Macro_TabApplication</ActionID>
+          </Output>
+        </Button>
+        <Button>
+          <Input>
+            <ActionID>V3DK_12</ActionID>
+          </Input>
+          <Output>
+            <ActionID>Macro_LockScreen</ActionID>
+          </Output>
+        </Button>
+      </ButtonBank>
+    </Device>
+    <Device>
+      <Name>Standard 2D Mouse</Name>
+      <VendorID>0</VendorID>
+      <ProductID>0</ProductID>
+      <ButtonBank Default="true">
+        <Name>STR_DEFAULT_BUTTONBANK</Name>
+        <ID>Default</ID>
+        <Button>
+          <Input>
+            <ActionID>V2DK_RADIALMENU</ActionID>
+          </Input>
+          <Output>
+            <ActionID>Base_RadialMenu_MenuRM1</ActionID>
+          </Output>
+        </Button>
+      </ButtonBank>
+    </Device>
+    <Device>
+      <Name>SpaceNavigator</Name>
+      <VendorID>46d</VendorID>
+      <ProductID>c626</ProductID>
+      <InheritsFrom>Standard 3D Mouse</InheritsFrom>
+      <CurrentAxisBank>Default</CurrentAxisBank>
+      <AxisBank Default="true">
+        <Name>STR_DEFAULT_BANK</Name>
+        <ID>Default</ID>
+        <Axis>
+          <Enabled>true</Enabled>
+          <Input>
+            <ActionID>HIDMultiAxis_Rx</ActionID>
+            <Min>-512</Min>
+            <Max>511</Max>
+          </Input>
+          <Output>
+            <ActionID>HIDMouse_Y</ActionID>
+          </Output>
+        </Axis>
+        <Axis>
+          <Enabled>true</Enabled>
+          <Input>
+            <ActionID>HIDMultiAxis_Ry</ActionID>
+            <Min>-512</Min>
+            <Max>511</Max>
+          </Input>
+          <Output>
+            <ActionID>HIDMouse_X</ActionID>
+            <Reversed>true</Reversed>
+          </Output>
+        </Axis>
+        <Axis>
+          <Enabled>true</Enabled>
+          <Input>
+            <ActionID>HIDMultiAxis_Rz</ActionID>
+            <Min>-512</Min>
+            <Max>511</Max>
+          </Input>
+          <Output>
+            <ActionID>HIDMouse_Wheel</ActionID>
+          </Output>
+        </Axis>
+      </AxisBank>
+      <ButtonBank Default="true">
+        <Name>STR_DEFAULT_BUTTONBANK</Name>
+        <ID>Default</ID>
+        <Button>
+          <Input>
+            <ActionID>HIDButton_1</ActionID>
+          </Input>
+          <Output>
+            <ActionID>HIDMouse_Left</ActionID>
+          </Output>
+        </Button>
+        <Button>
+          <Input>
+            <ActionID>HIDButton_2</ActionID>
+          </Input>
+          <Output>
+            <ActionID>HIDMouse_Right</ActionID>
+          </Output>
+        </Button>
+      </ButtonBank>
+    </Device>
+  </Devices>
+  <Menus>
+    <Executable>3DxPieMenus.exe</Executable>
+    <Menu Type="Radial">
+      <Name>RM CadMouse</Name>
+      <ID>MenuRM1</ID>
+      <GesturesEnabled>true</GesturesEnabled>
+      <Button>
+        <Input>
+          <ActionID>MenuButton_1</ActionID>
+        </Input>
+        <Output>
+          <ActionID>Driver_Start_Browser</ActionID>
+        </Output>
+      </Button>
+      <Button>
+        <Input>
+          <ActionID>MenuButton_2</ActionID>
+        </Input>
+        <Output>
+          <ActionID>Macro_Paste</ActionID>
+        </Output>
+      </Button>
+      <Button>
+        <Input>
+          <ActionID>MenuButton_3</ActionID>
+        </Input>
+        <Output>
+          <ActionID>Driver_ShowDriverGUI</ActionID>
+        </Output>
+      </Button>
+      <Button>
+        <Input>
+          <ActionID>MenuButton_4</ActionID>
+        </Input>
+        <Output>
+          <ActionID>Macro_Copy</ActionID>
+        </Output>
+      </Button>
+    </Menu>
+  </Menus>
+  <UI>
+    <ButtonFlyouts>
+      <Category Sort="false">
+        <ID>UI_3Dx</ID>
+        <Name>STR_UI_3DX</Name>
+        <ButtonAction>
+          <ID>Driver_Start_FileManager</ID>
+        </ButtonAction>
+        <ButtonAction>
+          <ID>Driver_Start_Browser</ID>
+        </ButtonAction>
+      </Category>
+      <Category Sort="false">
+        <ID>UI_Macros</ID>
+        <Name>STR_UI_MACROS</Name>
+        <ButtonAction>
+          <ID>Macro_Search</ID>
+        </ButtonAction>
+        <ButtonAction>
+          <ID>Macro_LockScreen</ID>
+        </ButtonAction>
+        <ButtonAction>
+          <ID>Macro_TaskManager</ID>
+        </ButtonAction>
+        <ButtonAction>
+          <ID>Macro_TabApplication</ID>
+        </ButtonAction>
+        <ButtonAction>
+          <ID>Macro_AlignWindowLeft</ID>
+        </ButtonAction>
+        <ButtonAction>
+          <ID>Macro_AlignWindowRight</ID>
+        </ButtonAction>
+        <ButtonAction>
+          <ID>Macro_MaximizeWindow</ID>
+        </ButtonAction>
+        <ButtonAction>
+          <ID>Macro_MinimizeAll</ID>
+        </ButtonAction>
+        <ButtonAction>
+          <ID>Macro_QuitProgram</ID>
+        </ButtonAction>
+        <ButtonAction>
+          <ID>Macro_FileManager</ID>
+        </ButtonAction>
+        <ButtonAction>
+          <ID>Macro_InternetBrowser</ID>
+        </ButtonAction>
+        <ButtonAction>
+          <ID>Settings</ID>
+        </ButtonAction>
+      </Category>
+
+    </ButtonFlyouts>
+  </UI>
+</AppCfg>
